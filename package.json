@@ -29,6 +29,7 @@
     "mocha": "^1.21.5"
   },
   "dependencies": {
-    "aws-sdk": "^2.0.21"
+    "aws-sdk": "^2.0.21",
+    "hapi": "^7.0.0"
   }
 }
