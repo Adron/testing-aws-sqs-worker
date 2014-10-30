@@ -1,5 +1,7 @@
 # Testing AWS SQS Worker Service
 
+[ ![Codeship Status for Adron/testing-aws-sqs-worker](https://www.codeship.io/projects/96a0a4d0-428f-0132-f5aa-0a753d0e967e/status)](https://www.codeship.io/projects/44472)
+
 ## Description:
 This is a worker process example using AWS Worker Instances and SQS as the queue.
 ## Key Technologies:
