@@ -7,7 +7,7 @@ var AWS = require('aws-sdk')
 var Hapi = require('hapi');
 var Good = require('good');
 
-var server = new Hapi.Server(3000);
+var server = new Hapi.Server(process.env.PORT || 3000);
 
 server.route({
   method: 'POST',
