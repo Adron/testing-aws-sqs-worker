@@ -13,8 +13,7 @@ server.route({
   method: 'POST',
   path: '/hi',
   handler: function (request, reply) {
-    console.log('Hi ' + request.payload.payload_stuff);
-    reply('success' + request.payload.payload_stuff);
+    server.log('Hi ' + request.payload.payload_stuff);
   }
 });
 
