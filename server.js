@@ -14,6 +14,7 @@ server.route({
   path: '/hi',
   handler: function (request, reply) {
     server.log('Hi ' + request.payload.payload_stuff);
+    reply('Hi ' + request.payload.payload_stuff);
   }
 });
 
