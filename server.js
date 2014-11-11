@@ -11,10 +11,10 @@ var server = new Hapi.Server(process.env.PORT || 3000);
 
 server.route({
   method: 'POST',
-  path: '/hi',
+  path: '/hi/{name}',
   handler: function (request, reply) {
-    server.log('Hi ' + request.payload.payload_stuff);
-    reply('Hi ' + request.payload.payload_stuff);
+    console.log('Hi ' + request.params.name );
+    reply(request.params.name);
   }
 });
 
