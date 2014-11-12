@@ -12,11 +12,16 @@ server.route({
   path: '/hi',
   handler: function (request, reply) {
 
+    console.log('Setting up AWS SDK Object.');
+
     AWS.config.update({
       accessKeyId: process.env.AWS_ACCESS_KEY_ID,
       secretAccessKey: process.env.AWS_SECRET_KEY,
       region: awsRegion
     });
+
+    console.log('Instantiating AWS SQS.');
+
     sqs = new AWS.SQS();
 
     console.log('received queue request');
@@ -37,17 +42,22 @@ function handleSqsMessage(sqs) {
     VisibilityTimeout: 5, // seconds - how long we want a lock on this job
     WaitTimeSeconds: 3 // seconds - how long should we wait for a message?
   }, function(err, data) {
-    if (data.Messages) {
-      var message = data.Messages[0],
-        body = JSON.parse(message.Body);
 
-      console.log('body:' + body);
-      console.log('message: ' + message);
+    if (err) {
+      console.log(err);
+    } else {
+      if (data.Messages) {
+        var message = data.Messages[0],
+          body = JSON.parse(message.Body);
 
-      removeFromQueue(message);  // We'll do this in a second
+        console.log('body:' + body);
+        console.log('message: ' + message);
+        removeFromQueue(message);  // We'll do this in a second
+      }
     }
-  });
 
+
+  });
 }
 
 var removeFromQueue = function(message) {
