@@ -12,9 +12,9 @@ server.route({
   path: '/hi',
   handler: function (request, reply) {
 
-    server.log('Payload' + request.payload);
+    server.log('Payload', request.payload);
 
-    server.log('Setting up AWS SDK Object.');
+    server.log('Setting up AWS SDK Object.', 'AWS SDK Setup.');
 
     AWS.config.update({
       accessKeyId: process.env.AWS_ACCESS_KEY_ID,
