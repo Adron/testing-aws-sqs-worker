@@ -3,7 +3,8 @@ var
   awsRegion = "us-west-2",
   sqs = {},
   Hapi = require('hapi'),
-  Good = require('good');
+  Good = require('good'),
+  queueUri = 'https://sqs.us-west-2.amazonaws.com/621392439615/a_sample';
 
 var server = new Hapi.Server(process.env.PORT || 3000);
 
@@ -17,8 +18,6 @@ function receiveSqsMessage() {
   });
   sqs = new AWS.SQS();
 
-
-
 }
 
 
@@ -26,8 +25,15 @@ server.route({
   method: 'POST',
   path: '/hi',
   handler: function (request, reply) {
-    server.log('response: ', request.payload.name)
+
+    server.log('response: ', request.payload);
+    server.log('testing1');
+
+    console.log('response: ', request.payload);
+    console.log('testing2');
+
     reply('Hello response' + request.payload);
+
   }
 });
 
