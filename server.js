@@ -11,11 +11,10 @@ server.route({
   method: 'POST',
   path: '/hi',
   handler: function (request, reply) {
-    reply('Hello response');
+    server.log('response: ', request.payload)
+    reply('Hello response' + request.payload);
   }
 });
-
-
 
 server.pack.register(Good, function (err) {
   if (err) {
