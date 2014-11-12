@@ -44,7 +44,7 @@ function handleSqsMessage(sqs) {
   }, function(err, data) {
 
     if (err) {
-      console.log(err);
+      console.log('Error: ' + err);
     } else {
       if (data.Messages) {
         var message = data.Messages[0],
