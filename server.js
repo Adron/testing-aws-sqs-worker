@@ -12,6 +12,8 @@ server.route({
   path: '/hi',
   handler: function (request, reply) {
 
+    console.log(request.payload);
+
     console.log('Setting up AWS SDK Object.');
 
     AWS.config.update({
