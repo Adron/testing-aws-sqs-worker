@@ -24,7 +24,7 @@ function receiveSqsMessage() {
 
 server.route({
   method: 'POST',
-  path: '/hi2',
+  path: '/hi',
   handler: function (request, reply) {
     server.log('response: ', request.payload.name)
     reply('Hello response' + request.payload);
