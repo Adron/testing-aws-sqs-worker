@@ -12,7 +12,9 @@ server.route({
   path: '/hi',
   handler: function (request, reply) {
 
-    console.log('Setting up AWS SDK Object.');
+    server.log('Payload' + request.payload);
+
+    server.log('Setting up AWS SDK Object.');
 
     AWS.config.update({
       accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -20,15 +22,15 @@ server.route({
       region: awsRegion
     });
 
-    console.log('Instantiating AWS SQS.');
+    server.log('Instantiating AWS SQS.');
 
     sqs = new AWS.SQS();
 
-    console.log('received queue request');
+    server.log('received queue request');
 
     var messageResponse = handleSqsMessage(sqs);
 
-    console.log('Hi!');
+    server.log('Hi!');
     reply('Hello response');
   }
 });
@@ -44,14 +46,14 @@ function handleSqsMessage(sqs) {
   }, function(err, data) {
 
     if (err) {
-      console.log('Error: ' + err);
+      server.log('Error: ' + err);
     } else {
       if (data.Messages) {
         var message = data.Messages[0],
           body = JSON.parse(message.Body);
 
-        console.log('body:' + body);
-        console.log('message: ' + message);
+        server.log('body:' + body);
+        server.log('message: ' + message);
         removeFromQueue(message);  // We'll do this in a second
       }
     }
@@ -66,7 +68,7 @@ var removeFromQueue = function(message) {
     ReceiptHandle: message.ReceiptHandle
   }, function(err, data) {
     // If we errored, tell us that we did
-    err && console.log(err);
+    err && server.log(err);
   });
 };
 
