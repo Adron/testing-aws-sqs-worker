@@ -4,7 +4,7 @@ var
   sqs = {},
   Hapi = require('hapi'),
   Good = require('good'),
-  queueUri = 'https://sqs.us-west-2.amazonaws.com/621392439615/a_sample';
+  queueUri = 'https://sqs.us-west-2.amazonaws.com/621392439615/sample';
 
 var server = new Hapi.Server(process.env.PORT || 3000);
 
