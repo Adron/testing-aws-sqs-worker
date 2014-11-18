@@ -23,31 +23,7 @@ server.route({
     sqs = new AWS.SQS();
 
     server.log('response: ', request.payload.name);
-    server.log('Starting receive message.');
-
-    sqs.receiveMessage({
-      QueueUrl: queueUri,
-      MaxNumberOfMessages: 1, // how many messages to retrieve?
-      VisibilityTimeout: 15, // how long to lock the job.
-      WaitTimeSeconds: 3 // how long to wait for message.
-    }, function(err, data) {
-      // If there are any messages to get
-      if (data.Messages) {
-        // Getting first message, which there would only be one at this point.
-        var message = data.Messages[0],
-          body = JSON.parse(message.Body);
-
-        server.log('body: ' + body);
-
-        // Remove from queue.
-        sqs.deleteMessage({
-          QueueUrl: queueUri,
-          ReceiptHandle: message.ReceiptHandle
-        }, function (err, data) {
-          err && console.log(err);
-        });
-      }
-    });
+    server.log('Starting receive message.', '...a 200 response should be received.');
 
     reply('Hello response' + request.payload.name);
   }
