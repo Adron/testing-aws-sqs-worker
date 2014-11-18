@@ -39,15 +39,13 @@ server.route({
 
         server.log('body: ' + body);
 
-        var removeFromQueue = function(message) {
-          sqs.deleteMessage({
-            QueueUrl: queueUri,
-            ReceiptHandle: message.ReceiptHandle
-          }, function(err, data) {
-            err && console.log(err);
-          });
-        };
-
+        // Remove from queue.
+        sqs.deleteMessage({
+          QueueUrl: queueUri,
+          ReceiptHandle: message.ReceiptHandle
+        }, function (err, data) {
+          err && console.log(err);
+        });
       }
     });
 
