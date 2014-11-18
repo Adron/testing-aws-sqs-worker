@@ -25,7 +25,7 @@ server.route({
     server.log('response: ', request.payload.name);
     server.log('Starting receive message.', '...a 200 response should be received.');
 
-    reply('Hello response' + request.payload.name);
+    reply();
   }
 });
 
