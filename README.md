@@ -16,7 +16,7 @@ The worker feature that I'll be using in this how-to, referred to by AWS as Work
 
 AWS Simple Queue Service, or SQS for short, is a distributed and scalable hosted queue service for storing messages that need to be reliably available between systems. By using SQS I can then create decoupled components of an application that are autonomous of each other in execution. This provides more options around scaling up or scaling down particular workloads, apps and services throughout the application ecosystem that I've built.
 
-For more information on AWS SQS check out this video series by Evan Brown [@evandbrown](https://twitter.com/evandbrown) @ Twitter or LinkedIn @ [Evan Brown](https://www.linkedin.com/pub/evan-brown/12/ab5/32b).
+For more information on AWS SQS check out this video series by Evan Brown or LinkedIn @ [Evan Brown](https://www.linkedin.com/pub/evan-brown/12/ab5/32b).
 
 * [AWS SQS Part 1](https://www.youtube.com/watch?v=rsg4YI4mljg)
 * [AWS SQS Part 2](https://www.youtube.com/watch?v=IuwfVX52PV8)
