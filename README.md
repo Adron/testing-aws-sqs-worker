@@ -1,8 +1,6 @@
 # Testing AWS SQS Web App
 
-[ ![Codeship Status for Adron/testing-aws-sqs-site](https://www.codeship.io/projects/7aeb04d0-428f-0132-5497-6aeabd51ae0d/status)](https://www.codeship.io/projects/44471)
-
-##Description:
+## Description:
 Amazon SQS Sample Web App in Node.js using Hapi.js, the AWS SDK and other libraries.
 ## Key Technologies:
 
